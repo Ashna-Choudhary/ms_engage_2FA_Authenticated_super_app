@@ -77,8 +77,10 @@ class FaceRecPage(layout):
 
     def compare_faces(self, *args):
 
-        sourceFile='D:\FaceID\dapp\dapplication_data\input_image\input_image.jpg'
-        targetFile='D:\FaceID\dapp\dapplication_data\input_image\input_image'+str(user_id)+'.jpg'
+        cwd = str(os.getcwd())
+
+        sourceFile=os.path.join(cwd, 'input_image', 'input_image.jpg')
+        targetFile=cwd+'\input_image\input_image'+str(user_id)+'.jpg'
 
         client=boto3.client('rekognition')
     
@@ -105,7 +107,8 @@ class FaceRecPage(layout):
     def verify(self, *args):
 
         # save input image from our webcam
-        SAVE_PATH=os.path.join('D:', 'FaceID', 'dapp', 'dapplication_data', 'input_image', 'input_image.jpg')
+        cwd = str(os.getcwd())
+        SAVE_PATH=os.path.join(cwd, 'input_image', 'input_image.jpg')
         ret, frame = self.capture.read()
         frame = frame[120:120+250, 200:200+250, :]
         cv2.imwrite(SAVE_PATH, frame)
