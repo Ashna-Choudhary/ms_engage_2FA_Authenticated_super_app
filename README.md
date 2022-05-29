@@ -14,4 +14,9 @@ self.execute_query(connection, "CREATE DATABASE db;")
 self.execute_query(connection, "create table tab(id int PRIMARY KEY AUTO_INCREMENT, username varchar(25) NOT NULL, password varchar(25) NOT NULL);")
 self.execute_query(connection,'insert into tab(username, password) values("ashna","67@Secret");')
 
-# line 128 - self.create_server_connection("localhost","uname","pswd"): replace uname and pswd with the mysql username and password of your local db.
+Replace username and password in db call:
+line 128 - self.create_server_connection("localhost","uname","pswd"): replace uname and pswd with the mysql username and password of your local db.
+
+References:
+https://www.youtube.com/watch?v=LKispFFQ5GU&t=4713s
+
